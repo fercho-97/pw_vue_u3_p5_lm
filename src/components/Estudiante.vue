@@ -95,7 +95,11 @@
           </p>
 
           <div class="btn">
-            <button @click="insertar">GUARDAR</button>
+            <button @click="insertar">Guardar</button>
+
+            <button @click="actualziar">Actualizar</button>
+
+            <button @click="eliminar">Eliminar</button>
           </div>
         </div>
       </div>
@@ -107,6 +111,7 @@
 import {
   consultarEstudianteFachada,
   insertarFachada,
+  actualizarFachada, eliminarFachada
 } from "../helpers/clienteEstudiante.js";
 
 export default {
@@ -164,6 +169,28 @@ export default {
       };
 
       await insertarFachada(estuBody);
+    },
+
+    async actualziar() {
+      const estuBody = {
+        nombre: this.nombreIng,
+        apellido: this.apellidoIng,
+        genero: this.generoIng,
+        fechaNacimiento: this.fechaNacimientoIng,
+        cedula: this.cedulaIng,
+        rangoEconomico: this.rangoEconomicoIng,
+        facultad: this.facultadIng,
+        carrera: this.carreraIng,
+        gratuidad: this.gratuidadIng,
+      };
+
+      await actualizarFachada(this.id, estuBody);
+    },
+
+    async eliminar(){
+      
+      await eliminarFachada(this.id);
+
     },
   },
 };
