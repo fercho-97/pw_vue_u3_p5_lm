@@ -1,16 +1,20 @@
 <template>
-   <EstudiantePage/>
+  <!--  <EstudiantePage/>  -->
+
+  <h1>Universidad Central del Ecuador</h1>
+
+  <router-view />
 </template>
 
 <script>
-import EstudiantePage from './page/EstudiantePage.vue'
+import EstudiantePage from "./page/EstudiantePage.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    EstudiantePage
-  }
-}
+    EstudiantePage,
+  },
+};
 </script>
 
 <style>
