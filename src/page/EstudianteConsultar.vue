@@ -53,6 +53,12 @@ import { consultarEstudianteFachada } from "../helpers/clienteEstudiante.js"
 //import Estudiante from "../components/Estudiante.vue";
 
 export default {
+
+  created(){
+    console.log(this.$route);
+    console.log(this.$route.query);
+    this.consulta(this.$route.params.id);
+  },
   data() {
     return {
       id: null,
@@ -81,6 +87,19 @@ export default {
       this.gratuidad = data.gratuidad;
       console.log("desde componente:");
       console.log(data);
+    },
+
+    async consulta(id){
+      const data = await consultarEstudianteFachada(id);
+      this.nombre = data.nombre;
+      this.apellido = data.apellido;
+      this.genero = data.genero;
+      this.cedula = data.cedula;
+      this.fechaNacimiento = data.fechaNacimiento;
+      this.rangoEconomico = data.rangoEconomico;
+      this.facultad = data.facultad;
+      this.carrera = data.carrera;
+      this.gratuidad = data.gratuidad;
     },
   },
 };

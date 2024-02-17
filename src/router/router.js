@@ -14,7 +14,7 @@ const routes = [
         component: ()=> import('../page/EstudianteActualizar')
     },
     {
-        path: '/consultar',
+        path: '/consultar/:id',
      
         component: ()=> import('../page/EstudianteConsultar')
     },
