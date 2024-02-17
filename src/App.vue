@@ -2,19 +2,22 @@
   <!--  <EstudiantePage/>  -->
 
   <h1>Universidad Central del Ecuador</h1>
-
+  <NavBar/> 
   <router-view />
 
+  <h2>Todos los derechos reservados</h2>
 
 </template>
 
 <script>
 import EstudiantePage from "./page/EstudiantePage.vue";
+import NavBar from "./components/NavBar.vue";
 
 export default {
   name: "App",
   components: {
     EstudiantePage,
+    NavBar
   },
 };
 </script>
