@@ -1,120 +1,45 @@
 <template>
-  <div>
-    <h1>Componente Estudiante</h1>
-
-    <div class="container">
-      <div class="divisiones">
-        <div class="form-get">
-          <input type="text" name="" id="" v-model="id" />
-          <button @click="consultarPorId">Consultar</button>
-          <h2>Esudiante Encontrado con id {{ id }}</h2>
-          <p type="Nombre:">
-            <input type="text" name="" id="idnombre" v-model="nombre" />
-          </p>
-          <p type="Apellido:">
-            <input type="text" name="" id="idapellido" v-model="apellido" />
-          </p>
-          <p type="Genero:">
-            <input type="text" name="" id="idgenero" v-model="genero" />
-          </p>
-          <p type="Fecha Nacimiento:">
-            <input
-              type="text"
-              name=""
-              id="idfechanacimiento"
-              v-model="fechaNacimiento"
-            />
-          </p>
-          <p type="Cédula:">
-            <input type="text" name="" id="idcedula" v-model="cedula" />
-          </p>
-          <p type="Quintil:">
-            <input
-              type="text"
-              name=""
-              id="idquintil"
-              v-model="rangoEconomico"
-            />
-          </p>
-          <p type="Facultad:">
-            <input type="text" name="" id="idfacultad" v-model="facultad" />
-          </p>
-          <p type="Carrera:">
-            <input type="text" name="" id="idcarrera" v-model="carrera" />
-          </p>
-          <p type="Gratuidad:">
-            <input type="text" name="" id="idgratuidad" v-model="gratuidad" />
-          </p>
-        </div>
-
-        <!-- <input type="text" name="" id="" v-model="apellido" />
-        <button @click="insertar">Insertar</button>  -->
-        <div class="form-post">
-          <h2>Nuevo Estudiante</h2>
-          <p type="Nombre:">
-            <input type="text" name="" id="idnombre" v-model="nombreIng" />
-          </p>
-          <p type="Apellido:">
-            <input type="text" name="" id="idapellido" v-model="apellidoIng" />
-          </p>
-          <p type="Genero:">
-            <input type="text" name="" id="idgenero" v-model="generoIng" />
-          </p>
-          <p type="Fecha Nacimiento:">
-            <input
-              type="text"
-              name=""
-              id="idfechanacimiento"
-              v-model="fechaNacimientoIng"
-            />
-          </p>
-          <p type="Cédula:">
-            <input type="text" name="" id="idcedula" v-model="cedulaIng" />
-          </p>
-          <p type="Quintil:">
-            <input
-              type="text"
-              name=""
-              id="idquintil"
-              v-model="rangoEconomicoIng"
-            />
-          </p>
-          <p type="Facultad:">
-            <input type="text" name="" id="idfacultad" v-model="facultadIng" />
-          </p>
-          <p type="Carrera:">
-            <input type="text" name="" id="idcarrera" v-model="carreraIng" />
-          </p>
-          <p type="Gratuidad:">
-            <input
-              type="text"
-              name=""
-              id="idgratuidad"
-              v-model="gratuidadIng"
-            />
-          </p>
-
-          <div class="btn">
-            <button @click="insertar">Guardar</button>
-
-            <button @click="actualziar">Actualizar</button>
-
-            <button @click="eliminar">Eliminar</button>
-          </div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="form-post">
+      <p type="Nombre:">
+        <input type="text" name="" id="idnombre"  v-bind="nombreIng"/>
+      </p>
+      <p type="Apellido:">
+        <input type="text" name="" id="idapellido" v-model="apellidoIng" />
+      </p>
+      <p type="Genero:">
+        <input type="text" name="" id="idgenero" v-model="generoIng" />
+      </p>
+      <p type="Fecha Nacimiento:">
+        <input
+          type="text"
+          name=""
+          id="idfechanacimiento"
+          v-model="fechaNacimientoIng"
+        />
+      </p>
+      <p type="Cédula:">
+        <input type="text" name="" id="idcedula" />
+      </p>
+      <p type="Quintil:">
+        <input type="text" name="" id="idquintil" v-model="rangoEconomicoIng" />
+      </p>
+      <p type="Facultad:">
+        <input type="text" name="" id="idfacultad" v-model="facultadIng" />
+      </p>
+      <p type="Carrera:">
+        <input type="text" name="" id="idcarrera" v-model="carreraIng" />
+      </p>
+      <p type="Gratuidad:">
+        <input type="text" name="" id="idgratuidad" v-model="gratuidadIng" />
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-import {
-  consultarEstudianteFachada,
-  insertarFachada,
-  actualizarFachada, eliminarFachada
-} from "../helpers/clienteEstudiante.js";
-
 export default {
+ 
   data() {
     return {
       id: null,
@@ -127,7 +52,7 @@ export default {
       facultad: null,
       carrera: null,
       gratuidad: null,
-
+  
       nombreIng: null,
       apellidoIng: null,
       generoIng: null,
@@ -143,15 +68,15 @@ export default {
   methods: {
     async consultarPorId() {
       const data = await consultarEstudianteFachada(this.id);
-      this.nombre = data.nombre;
-      this.apellido = data.apellido;
-      this.genero = data.genero;
-      this.cedula = data.cedula;
-      this.fechaNacimiento = data.fechaNacimiento;
-      this.rangoEconomico = data.rangoEconomico;
-      this.facultad = data.facultad;
-      this.carrera = data.carrera;
-      this.gratuidad = data.gratuidad;
+      this.nombreIng = data.nombre;
+      this.apellidoIng = data.apellido;
+      this.generoIng = data.genero;
+      this.cedulaIng = data.cedula;
+      this.fechaNacimientoIng = data.fechaNacimiento;
+      this.rangoEconomicoIng = data.rangoEconomico;
+      this.facultadIng = data.facultad;
+      this.carreraIng = data.carrera;
+      this.gratuidadIng = data.gratuidad;
       console.log("desde componente:");
       console.log(data);
     },
@@ -187,10 +112,8 @@ export default {
       await actualizarFachada(this.id, estuBody);
     },
 
-    async eliminar(){
-      
+    async eliminar() {
       await eliminarFachada(this.id);
-
     },
   },
 };
@@ -210,7 +133,7 @@ export default {
 
 .form-post {
   width: 340px;
-  height: 700px;
+  height: 600px;
   background-color: #d59393;
   border-radius: 8px;
   padding: 20px 30px;

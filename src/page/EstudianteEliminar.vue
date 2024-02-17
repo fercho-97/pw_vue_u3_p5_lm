@@ -8,9 +8,7 @@
 <script>
 
 import {
-  consultarEstudianteFachada,
-  insertarFachada,
-  actualizarFachada, eliminarFachada
+ eliminarFachada
 } from "../helpers/clienteEstudiante.js";
 
 export default {
